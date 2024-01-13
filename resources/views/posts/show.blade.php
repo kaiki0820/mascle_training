@@ -10,6 +10,7 @@
                 <p>{{ $post->body }}</p>    
             </div>
         </div>
+        <img src={{$post->image_url}}>
         <div class="footer">
             <a href="/">戻る</a>
         </div>

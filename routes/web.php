@@ -3,7 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-
+use App\Http\Controllers\WorkController;
+use App\Http\Controllers\MypageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,20 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function (
     Route::get('/posts/{post}', 'show');
 });
 
+Route::controller(MypageController::class)->middleware(['auth'])->group(function() {
+    Route::get('/mypage','index')->name('mypage.index');
+});
+
+Route::controller(WorkController::class)->middleware(['auth'])->group(function() {
+    Route::get('/works/create', 'create')->name('works.create');
+    Route::post('/works','store')->name('works.store');
+    Route::get('/works/{work}/show', 'show')->name('works.show');
+    Route::put('/works/{work}/edit', 'edit')->name('works.edit');
+});
+
+Route::controller(MypageController::class)->middleware(['auth'])->group(function() {
+    Route::get('/healthes/create', 'create')->name('healthes.create');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

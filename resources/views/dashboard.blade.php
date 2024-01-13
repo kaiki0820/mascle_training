@@ -14,4 +14,7 @@
             </div>
         </div>
     </div>
+    <div class="footer">
+            <a href="/">戻る</a>
+    </div>
 </x-app-layout>
