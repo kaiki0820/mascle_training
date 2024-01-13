@@ -1,18 +1,17 @@
 <x-app-layout>
     <h1>投稿作成</h1>
-        <form action="/posts" method="POST">
+        <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="title">
-                <br>
-                <h2>投稿タイトル</h2>
-                <input type="text" name="post[title]" placeholder="タイトル"/>
-            </div>
             <div>
                 <h2>カテゴリー</h2>
-                <select>
-                    <option>テスト1</option>
-                    <option>テスト2</option>
+                <select name="category_id">
+                    @foreach($categories as $category)
+                    <option value={{$category->id}}>{{$category->name}}</option>
+                    @endforeach
                 </select>
+            </div>
+            <div>
+                <input type="file" name="image_url">
             </div>
             <div class="body">
                 <h2>投稿内容</h2>

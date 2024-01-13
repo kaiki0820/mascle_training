@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constraind();
             $table->integer('weight');
             $table->integer('bmi');
+            $table->integer('muscle');
         });
     }
 
