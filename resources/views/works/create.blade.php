@@ -3,7 +3,7 @@
     
     <div>
         <h3>トレーニング記録</h3>
-        <form action="/works" method="post">
+        <form action="/mypage" method="post">
             @csrf
             <div>
                 <label>トレーニング内容</label>

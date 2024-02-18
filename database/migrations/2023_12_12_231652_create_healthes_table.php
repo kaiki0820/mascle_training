@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('user_id')->constraind();
-            $table->integer('weight');
-            $table->integer('bmi');
-            $table->integer('muscle');
+            $table->float('weight');
+            $table->float('bmi');
+            $table->float('muscle');
         });
     }
 
