@@ -10,12 +10,27 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+        <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:700" rel="stylesheet">
+{{-- ※以下は、@vite(['resources/css/app.css', 'resources/js/app.js'])の下に記述 --}}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
         <!-- Scripts -->
+        <script type="module" src="main.js"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <style>
+            .liked {
+                color: rgb(225, 58, 86);
+            }
+            
+            .like-toggle {
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen">
             @include('layouts.navigation')
 
             <!-- Page Heading -->

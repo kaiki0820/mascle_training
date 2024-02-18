@@ -34,6 +34,11 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function (
 
 Route::controller(MypageController::class)->middleware(['auth'])->group(function() {
     Route::get('/mypage','index')->name('mypage.index');
+    Route::get('/healthes/create', 'create')->name('healthes.create');
+    Route::post('/healthes', 'store')->name('healthes.store');
+    Route::get('/mypage/weight', 'weight')->name('mypage.weight');
+    Route::get('/mypage/bmi', 'bmi')->name('mypage.bmi');
+    Route::get('/mypage/muscle', 'muscle')->name('mypage.muscle');
 });
 
 Route::controller(WorkController::class)->middleware(['auth'])->group(function() {
@@ -43,11 +48,8 @@ Route::controller(WorkController::class)->middleware(['auth'])->group(function()
     Route::put('/works/{work}/edit', 'edit')->name('works.edit');
 });
 
-Route::controller(MypageController::class)->middleware(['auth'])->group(function() {
-    Route::get('/healthes/create', 'create')->name('healthes.create');
-});
-
 Route::middleware('auth')->group(function () {
+    Route::post('/posts/like', [PostController::class, 'like'])->name('posts.like');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
